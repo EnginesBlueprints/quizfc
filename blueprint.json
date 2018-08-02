@@ -22,7 +22,7 @@
         "label": "quizfc"
       }
     },
-    "timestamp": "2018-08-03T09:52:27+10:00"
+    "timestamp": "2018-08-03T09:57:58+10:00"
   },
   "software": {
     "base": {
@@ -102,11 +102,11 @@
     "framework_specific": {
       "rake_tasks": [
         {
-          "action": "db:seed"
-        },
-        {
           "action": "db:migrate",
           "always_run": true
+        },
+        {
+          "action": "db:seed"
         },
         {
           "action": "assets:precompile",
