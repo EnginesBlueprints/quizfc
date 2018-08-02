@@ -22,7 +22,7 @@
         "label": "quizfc"
       }
     },
-    "timestamp": "2018-08-03T08:34:41+10:00"
+    "timestamp": "2018-08-03T08:36:50+10:00"
   },
   "software": {
     "base": {
@@ -93,7 +93,7 @@
         "recursive": true
       }
     ],
-    "persistent_files": [
+    "persistent_directories": [
       {
         "path": "/home/app/public",
         "volume_name": "public"
