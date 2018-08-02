@@ -15,12 +15,83 @@
         "level": "alpha",
         "patch": 0
       }
-    }
+    },
+    "software": {
+      "display": {
+        "title": "quiz fc",
+        "label": "quizfc"
+      }
+    },
+    "timestamp": "2018-08-03T08:22:22+10:00"
   },
   "software": {
     "base": {
+      "name": "quizfc",
+      "framework": "rails5",
       "deployment_type": "web",
-      "http_protocol": "https_and_http"
+      "http_protocol": "https_and_http",
+      "memory": {
+        "required": 256,
+        "recommended": 384
+      }
+    },
+    "service_configurations": [
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "database/sql/mysql",
+        "variables": {
+          "database_name": "_Engines_Builder(engine_name)",
+          "database_host": "_Engines_System(mysql_host)",
+          "db_username": "_Engines_Builder(engine_name) ",
+          "db_password": "_Engines_System(random(10))",
+          "collation": "utf8_general_ci",
+          "full_access": "false"
+        }
+      },
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "filesystem/local/filesystem",
+        "variables": {
+          "service_name": "public",
+          "volume_src": "",
+          "engine_path": "/home/fs/public",
+          "permissions": "rw",
+          "user": "_Engines_Builder(data_uid)",
+          "group": "_Engines_Builder(data_gid)"
+        }
+      },
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "cron",
+        "variables": {
+          "action_type": "",
+          "cron_job": "rails runner \"ScheduleQuizzesJob.perform_now\"",
+          "title": "ScheduleQuizzes",
+          "when": "*/5 * * * * *",
+          "notification_address": "default"
+        }
+      }
+    ],
+    "persistent_files": [
+      {
+        "path": "/home/app/public",
+        "volume_name": "public"
+      }
+    ],
+    "framework_specific": {
+      "rake_tasks": [
+        {
+          "action": "db:seed"
+        },
+        {
+          "action": "db:migrate",
+          "always_run": true
+        },
+        {
+          "action": "assets:precompile",
+          "always_run": true
+        }
+      ]
     }
   }
 }
