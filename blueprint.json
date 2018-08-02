@@ -22,7 +22,7 @@
         "label": "quizfc"
       }
     },
-    "timestamp": "2018-08-03T08:30:56+10:00"
+    "timestamp": "2018-08-03T08:34:41+10:00"
   },
   "software": {
     "base": {
@@ -33,6 +33,12 @@
       "memory": {
         "required": 256,
         "recommended": 384
+      }
+    },
+    "scripts": {
+      "start": {
+        "language": "sh",
+        "content": "#!/bin/bash\r\n\r\ncd /home/app\r\ngit pull\r\nbundle --standalone\r\nbundle exec rake db:migrate\r\nbundle exec assets:precompile"
       }
     },
     "installed_packages": [
@@ -81,6 +87,12 @@
         }
       }
     ],
+    "file_write_permissions": [
+      {
+        "path": "/home/app",
+        "recursive": true
+      }
+    ],
     "persistent_files": [
       {
         "path": "/home/app/public",
@@ -89,6 +101,9 @@
     ],
     "framework_specific": {
       "rake_tasks": [
+        {
+          "action": "generate_secret_token"
+        },
         {
           "action": "db:seed"
         },
