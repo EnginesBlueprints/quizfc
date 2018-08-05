@@ -22,7 +22,7 @@
         "label": "quizfc"
       }
     },
-    "timestamp": "2018-08-05T19:19:12+10:00"
+    "timestamp": "2018-08-05T19:41:51+10:00"
   },
   "software": {
     "base": {
@@ -101,9 +101,6 @@
     ],
     "framework_specific": {
       "rake_tasks": [
-        {
-          "action": "secret"
-        },
         {
           "action": "db:migrate",
           "always_run": true
