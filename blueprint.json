@@ -22,7 +22,7 @@
         "label": "quizfc"
       }
     },
-    "timestamp": "2018-08-06T09:48:04+10:00"
+    "timestamp": "2018-08-06T09:53:05+10:00"
   },
   "software": {
     "base": {
@@ -72,6 +72,16 @@
           "title": "ScheduleQuizzes",
           "when": "*/5 * * * *",
           "notification_address": "default"
+        }
+      }
+    ],
+    "environment_variables": [
+      {
+        "name": "RAILS_LOG_TO_STDOUT",
+        "value": "true",
+        "immutable": true,
+        "input": {
+          "type": "boolean"
         }
       }
     ],
