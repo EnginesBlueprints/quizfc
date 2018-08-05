@@ -22,7 +22,7 @@
         "label": "quizfc"
       }
     },
-    "timestamp": "2018-08-05T19:15:16+10:00"
+    "timestamp": "2018-08-05T19:19:12+10:00"
   },
   "software": {
     "base": {
@@ -102,7 +102,7 @@
     "framework_specific": {
       "rake_tasks": [
         {
-          "action": "bundle exec rails secrets:setup"
+          "action": "secret"
         },
         {
           "action": "db:migrate",
