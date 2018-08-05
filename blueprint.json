@@ -22,7 +22,7 @@
         "label": "quizfc"
       }
     },
-    "timestamp": "2018-08-06T09:16:21+10:00"
+    "timestamp": "2018-08-06T09:32:15+10:00"
   },
   "software": {
     "base": {
@@ -65,24 +65,12 @@
       },
       {
         "publisher_namespace": "EnginesSystem",
-        "type_path": "filesystem/local/filesystem",
-        "variables": {
-          "service_name": "public",
-          "volume_src": "",
-          "engine_path": "/home/fs/public",
-          "permissions": "rw",
-          "user": "_Engines_Builder(data_uid)",
-          "group": "_Engines_Builder(data_gid)"
-        }
-      },
-      {
-        "publisher_namespace": "EnginesSystem",
         "type_path": "cron",
         "variables": {
           "action_type": "",
           "cron_job": "rails runner \"ScheduleQuizzesJob.perform_now\"",
           "title": "ScheduleQuizzes",
-          "when": "*/5 * * * * *",
+          "when": "*/5 * * * *",
           "notification_address": "default"
         }
       }
