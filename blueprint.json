@@ -22,7 +22,7 @@
         "label": "quizfc"
       }
     },
-    "timestamp": "2018-08-06T09:53:05+10:00"
+    "timestamp": "2018-08-06T10:01:06+10:00"
   },
   "software": {
     "base": {
@@ -87,7 +87,7 @@
     ],
     "template_files": [
       {
-        "path": "app/configuration.yml",
+        "path": "/home/app/configuration.yml",
         "language": "yaml",
         "content": "production:\r\n default_url_options:\r\n  host: _Engines_Builder(fqdn)\r\n email_delivery:\r\n  delivery_method: :smtp\r\n  smtp_settings:\r\n   address: _Engines_System(smtp_host)\r\n   port: 25\r\n   domain: _Engines_System(default_domain)\r\n   enable_starttls_auto : false\r\n   attachments_storage_path: /tmp"
       }
