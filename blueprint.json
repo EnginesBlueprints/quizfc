@@ -22,7 +22,7 @@
         "label": "quizfc"
       }
     },
-    "timestamp": "2018-08-06T10:01:06+10:00"
+    "timestamp": "2018-10-04T13:38:49+10:00"
   },
   "software": {
     "base": {
@@ -73,6 +73,18 @@
           "when": "*/5 * * * *",
           "notification_address": "default"
         }
+      },
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "filesystem/local/filesystem",
+        "variables": {
+          "service_name": "storage",
+          "volume_src": "",
+          "engine_path": "",
+          "permissions": "rw",
+          "user": "_Engines_Builder(data_uid)",
+          "group": "_Engines_Builder(data_gid)"
+        }
       }
     ],
     "environment_variables": [
@@ -96,6 +108,31 @@
       {
         "path": "/home/app",
         "recursive": true
+      }
+    ],
+    "persistent_directories": [
+      {
+        "path": "/home/app/storage",
+        "volume_name": "storage"
+      }
+    ],
+    "actionators": [
+      {
+        "name": "rake takes",
+        "return_type": "plain_text",
+        "variables": [
+          {
+            "name": "task",
+            "input": {
+              "type": "string",
+              "label": "rake task"
+            }
+          }
+        ],
+        "script": {
+          "language": "sh",
+          "content": "#!/bin/bash\r\ncd /home/app\r\nrake $task"
+        }
       }
     ],
     "framework_specific": {
