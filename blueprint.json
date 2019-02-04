@@ -22,7 +22,7 @@
         "label": "quizfc"
       }
     },
-    "timestamp": "2018-10-08T12:35:36+11:00"
+    "timestamp": "2019-02-04T14:57:58+11:00"
   },
   "software": {
     "base": {
@@ -154,9 +154,6 @@
         {
           "action": "assets:precompile",
           "always_run": true
-        },
-        {
-          "action": "db:seed"
         }
       ]
     }
